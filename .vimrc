@@ -26,7 +26,7 @@ set smartcase
 " Hightlight matching braces
 set showmatch
 
-"Search for literal text
+" Search for literal text
 nnoremap / /\v
 vnoremap / /\v
 
@@ -56,7 +56,7 @@ inoremap [ []<Esc>ha
 inoremap " ""<Esc>ha
 inoremap ' ''<Esc>ha
 
-"Better window navigation
+" Better window navigation
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
