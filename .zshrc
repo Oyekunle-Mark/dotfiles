@@ -39,6 +39,7 @@ alias tn='tmux new-session'
 alias tk='tmux kill-session'
 alias ta='tmux attach'
 alias tl='tmux ls'
+alias ts='tmux switch'
 
 # file operation alias
 
