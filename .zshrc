@@ -23,7 +23,7 @@ alias gco='git commit'
 # trusty old ls
 alias ll='ls -l --color -h --group-directories-first'
 alias la='ls -la --color -h --group-directories-first'
-alias lt='tree -a -L 2' # throw in some tree directory printing up to the second level
+alias lt='tree -L 2' # throw in some tree directory printing up to the second level
 
 export PATH="$PATH:/opt/riscv/bin"
 
