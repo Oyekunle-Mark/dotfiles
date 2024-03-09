@@ -67,3 +67,6 @@ nnoremap <Up>    :resize -2<CR>
 nnoremap <Down>  :resize +2<CR>
 nnoremap <Left>  :vertical resize -2<CR>
 nnoremap <Right> :vertical resize +2<CR>
+
+" Auto completion suggestions for file names
+set wildmode=longest:full,full
