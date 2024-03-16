@@ -50,3 +50,6 @@ alias ff='find . -iname'
 # find a work recursively using grep, e.g. grep -rni "string" .
 # also take note of " "
 alias fw='grep -rni'
+
+# alias that serves as a convenience for finding aliases
+alias fa='alias | grep'
