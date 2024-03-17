@@ -19,6 +19,7 @@ alias gs='git status'
 alias gd='git diff'
 alias ga='git add'
 alias gco='git commit'
+alias gpu='git push'
 
 # trusty old ls
 alias ll='ls -l --color -h --group-directories-first'
