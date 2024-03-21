@@ -41,6 +41,7 @@ alias tk='tmux kill-session'
 alias ta='tmux attach'
 alias tl='tmux ls'
 alias ts='tmux switch'
+alias tks='tmux kill-server'
 
 # file operation alias
 
