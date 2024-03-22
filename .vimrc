@@ -70,3 +70,18 @@ nnoremap <Right> :vertical resize +2<CR>
 
 " Auto completion suggestions for file names
 set wildmode=longest:full,full
+
+" paste code ummodified
+" I don't comprehend what the script below does myself, but stackoverflow
+" seems to think it should work the trick
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+" end of script
