@@ -55,3 +55,7 @@ alias fw='grep -rni'
 
 # alias that serves as a convenience for finding aliases
 alias fa='alias | grep'
+
+# alias for managing system power
+alias off='shutdown now'
+alias hib='systemctl suspend'
