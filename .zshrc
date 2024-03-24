@@ -31,7 +31,7 @@ export PATH="$PATH:/opt/riscv/bin"
 autoload -U colors && colors
 PS1="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
 
-# set the timezone to GMP
+# set the timezone to GMT
 TZ='Europe/London'; export TZ
 
 # tmux aliases
