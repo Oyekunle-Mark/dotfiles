@@ -36,15 +36,19 @@ set ruler
 " Blink cursor on error instead of beeping (grr)
 set visualbell
 
+" Customise the active cursorline
+set cursorline
+hi cursorline cterm=none term=none
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
+highlight CursorLine guibg=#303000 ctermbg=234
+
 " Fast terminal connection.  More characters will be sent to the screen for redrawing
 set ttyfast
 
 " Show mode and command in last line
 set showmode
 set showcmd
-
-" Blink cursor on error instead of beeping (grr)
-set visualbell
 
 " Set comma to the leader key
 let mapleader = ","
