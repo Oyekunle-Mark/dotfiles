@@ -59,3 +59,6 @@ alias fa='alias | grep'
 # alias for managing system power
 alias off='shutdown now'
 alias hib='systemctl suspend'
+
+# vim alias because a 3 letter word is too long to type :)
+alias v='vim'
