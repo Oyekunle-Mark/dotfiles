@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # create symbolic links to zsh, vim and tmux conf files
 ln -nfs $HOME/my_works/dotfiles/.zshrc $HOME/.zshrc
