@@ -20,6 +20,9 @@ alias gd='git diff'
 alias ga='git add'
 alias gco='git commit'
 alias gpu='git push'
+# git command to update the dotfiles from any location in the file system
+# assumes the dotfiles git folder is cloned to $HOME/my_works/
+alias dot_g='/usr/bin/git --git-dir=$HOME/my_works/dotfiles/.git --work-tree=$HOME/my_works/dotfiles'
 
 # trusty old ls
 alias ll='ls -l --color -h --group-directories-first'
