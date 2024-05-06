@@ -29,8 +29,6 @@ alias ll='ls -l --color -h --group-directories-first'
 alias la='ls -la --color -h --group-directories-first'
 alias lt='tree -L 2' # throw in some tree directory printing up to the second level
 
-export PATH="$PATH:/opt/riscv/bin"
-
 autoload -U colors && colors
 PS1="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
 
