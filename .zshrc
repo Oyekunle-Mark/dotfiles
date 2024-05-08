@@ -64,3 +64,6 @@ alias hib='systemctl suspend'
 
 # vim alias because a 3 letter word is too long to type :)
 alias v='vim'
+
+# add /sbin to PATH
+export PATH=/sbin:$PATH
