@@ -46,10 +46,10 @@ build_file() {
 }
 
 
-#  zsh
+#  build zsh
 build_file zsh $1 ~/.zshrc
 
-# tmux
+# build tmux
 build_file tmux $1 ~/.tmux.conf
 
 
@@ -59,5 +59,7 @@ mkdir -p $HOME/.vim/.undo
 mkdir -p $HOME/.vim/.backup
 mkdir -p $HOME/.vim/.swp
 
-# vim
+# build vim
 build_file vim $1 ~/.vimrc
+
+echo "\nAll config files have been built for the $1 environment. Enjoy :)\n"
