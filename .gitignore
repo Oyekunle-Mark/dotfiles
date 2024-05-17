@@ -1,1 +1,1 @@
-.private
+.private # .private is used to hold sensitive config we don't want to check into git
