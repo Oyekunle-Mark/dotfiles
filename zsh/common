@@ -3,17 +3,6 @@ HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
 
-bindkey -e
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/chief_oye/.zshrc'
-
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
-
-force_color_prompt=yes
-
 # git aliases
 alias g='git'
 alias gs='git status'
@@ -27,7 +16,9 @@ alias ll='ls -l --color -h --group-directories-first'
 alias la='ls -la --color -h --group-directories-first'
 alias lt='tree -L 2' # throw in some tree directory printing up to the second level
 
+# add some colors to the command prompt
 autoload -U colors && colors
+# add the current working directory path to the prompt
 PS1="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
 
 # set the timezone to GMT
@@ -55,12 +46,5 @@ alias fw='grep -rni'
 # alias that serves as a convenience for finding aliases
 alias fa='alias | grep'
 
-# alias for managing system power
-alias off='systemctl poweroff'
-alias hib='systemctl suspend'
-
 # vim alias because a 3 letter word is too long to type :)
 alias v='vim'
-
-# add /sbin to PATH
-export PATH=/sbin:$PATH
