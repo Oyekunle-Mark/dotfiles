@@ -62,4 +62,8 @@ mkdir -p $HOME/.vim/.swp
 # build vim
 build_file vim $1 ~/.vimrc
 
+# build git
+build_file git $1 ~/.gitconfig
+
+# all configs built successfully. log the success message
 echo "\nAll config files have been built for the $1 environment. Enjoy :)\n"
