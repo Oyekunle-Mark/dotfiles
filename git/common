@@ -1,0 +1,4 @@
+[core]
+        editor = vim
+[credential]
+        helper = cache --timeout=9999999999999999

@@ -1,0 +1,8 @@
+[user]
+        email = oyekunlemac@gmail.com
+        name = Oye Oloyede
+[sendemail]
+        smtpencryption = tls
+        smtpserver = smtp.gmail.com
+        smtpserverport = 587
+        smtpuser = oyekunlemac@gmail.com
