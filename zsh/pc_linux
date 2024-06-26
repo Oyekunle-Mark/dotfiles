@@ -1,7 +1,7 @@
 
 # alias for managing system power
 alias off='systemctl poweroff'
-alias hib='systemctl suspend'
+alias hib='systemctl hibernate'
 
 # add /sbin to PATH
 export PATH=/sbin:$PATH
