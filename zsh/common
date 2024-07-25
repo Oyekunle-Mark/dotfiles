@@ -22,6 +22,7 @@ alias gd='git diff'
 alias ga='git add'
 alias gco='git commit'
 alias gpu='git push'
+alias gclean='git clean -fdx'
 
 # trusty old ls
 alias ll='ls -l --color -h --group-directories-first'
