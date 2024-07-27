@@ -8,3 +8,6 @@ export PATH=/sbin:$PATH
 
 # alias to start hugo. For some reason, my debian machine only finds hugo with 'snap run hugo'
 alias hugo='snap run hugo'
+
+# add the cross compiler built by crosstoll-ng to path. This can be removed if no crosstool-ng cross-compiler is being used
+export PATH=$HOME/x-tools/arm-training-linux-musleabihf/bin:$PATH
