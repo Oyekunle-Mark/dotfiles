@@ -1,9 +1,12 @@
-
-# alias for yelp dev box
-alias box='ssh -A mktgorch'
-
 # yelp specific aliases
 alias setupz='ssh-add ~/.ssh/id_rsa'
 alias pbox='ssh -A adhoc-prod'
 alias p='paasta'
 alias s='scribereader'
+
+# alias for yelp dev box
+alias box='ssh -A mktgorch'
+
+# stage box aliases
+alias sgbox='ssh deploy-stageg'
+alias sfbox='ssh deploy-stagef'
