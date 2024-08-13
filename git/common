@@ -4,3 +4,5 @@
 		rebase = false
 [credential]
         helper = cache --timeout=9999999999999999
+[grep]
+		lineNumber = true
