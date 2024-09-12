@@ -52,18 +52,23 @@ build_file zsh $1 ~/.zshrc
 # build tmux
 build_file tmux $1 ~/.tmux.conf
 
-
+# build vim
 # vim expects some folders to exist in the home directory, create those if they don't
 mkdir -p $HOME/.vim
 mkdir -p $HOME/.vim/.undo
 mkdir -p $HOME/.vim/.backup
 mkdir -p $HOME/.vim/.swp
-
-# build vim
+# now call build_file
 build_file vim $1 ~/.vimrc
 
 # build git
 build_file git $1 ~/.gitconfig
+
+# build sway config
+# create sway nested config destination if missing
+mkdir -p ~/.config/sway
+# then build
+build_file sway $1 ~/.config/sway/config
 
 # all configs built successfully. log the success message
 echo "\nAll config files have been built for the $1 environment. Enjoy :)\n"
