@@ -70,5 +70,11 @@ mkdir -p ~/.config/sway
 # then build
 build_file sway $1 ~/.config/sway/config
 
+# build foot
+# create foot nested config destination if missing
+mkdir -p ~/.config/foot
+# then build
+build_file foot $1 ~/.config/foot/foot.ini
+
 # all configs built successfully. log the success message
 echo "\nAll config files have been built for the $1 environment. Enjoy :)\n"
