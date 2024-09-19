@@ -12,8 +12,23 @@ setopt hist_ignore_dups
 setopt hist_find_no_dups
 
 # auto-completion
-autoload -U compinit && compinit
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+autoload -U compinit
+compinit
+zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
+zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
+
+# command auto corrections
+setopt correctall
+
+# add some colors to the command prompt
+autoload -U colors && colors
+
+# customize the prompt
+# show current director and result of last command using color of last `%`
+PS1='%F{blue}%~ %(?.%F{green}.%F{red})%#%f '
+
+# set the timezone to GMT
+TZ='Europe/London'; export TZ
 
 # git aliases
 alias g='git'
@@ -28,14 +43,6 @@ alias gclean='git clean -fdx'
 alias ll='ls -l --color -h --group-directories-first'
 alias la='ls -la --color -h --group-directories-first'
 alias lt='tree -L 2' # throw in some tree directory printing up to the second level
-
-# add some colors to the command prompt
-autoload -U colors && colors
-# add the current working directory path to the prompt
-PS1="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg[yellow]%}%~ %{$reset_color%}%% "
-
-# set the timezone to GMT
-TZ='Europe/London'; export TZ
 
 # tmux aliases
 alias t='tmux'
