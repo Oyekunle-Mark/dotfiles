@@ -31,7 +31,7 @@ font=DejaVuSansMono:size=11
 # bold-text-in-bright=no
 # word-delimiters=,│`|:"'()[]{}<>
 # selection-target=primary
-# workers=<number of logical CPUs>
+workers=12
 
 [environment]
 # name=value
