@@ -1,5 +1,7 @@
 [core]
         editor = vim
+[commit]
+		verbose = true
 [pull]
 		rebase = false
 [credential]
