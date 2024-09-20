@@ -1,2 +1,6 @@
 # start sway manually
 alias start_sway='dbus-run-session sway'
+
+# power management
+alias sus='loginctl suspend'
+alias off='shutdown -h 0'
