@@ -18,7 +18,7 @@ set $term foot
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | wmenu | xargs swaymsg exec --
+set $menu wmenu-run | xargs swaymsg exec --
 
 ### Output configuration
 ## MONITORS
@@ -219,5 +219,8 @@ bar {
         inactive_workspace #32323200 #32323200 #5c5c5c
     }
 }
+
+# start notification daemon
+exec mako
 
 include /etc/sway/config.d/*
