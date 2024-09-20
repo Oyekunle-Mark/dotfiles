@@ -1,10 +1,2 @@
-
-# alias for managing system power
-alias off='systemctl poweroff'
-alias hib='systemctl suspend'
-
-# add /sbin to PATH
-export PATH=/sbin:$PATH
-
-# alias to start hugo. For some reason, my debian machine only finds hugo with 'snap run hugo'
-alias hugo='snap run hugo'
+# start sway manually
+alias start_sway='dbus-run-session sway'
