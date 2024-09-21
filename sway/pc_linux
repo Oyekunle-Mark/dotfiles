@@ -4,21 +4,29 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+
 ### Variables
 #
 # Logo/Windows key. Use Mod1 for Alt.
 set $mod Mod4
+
+
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
+
+
 # Your preferred terminal emulator
 set $term foot
+
+
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu wmenu-run | xargs swaymsg exec --
+
 
 ### Output configuration
 ## MONITORS
@@ -31,10 +39,10 @@ output DP-1 resolution 1920x1080@60hz pos 0 0 transform 270
 output HDMI-A-1 resolution 2560x1440@144hz pos 1920 0
 output DP-2 resolution 1920x1080@60hz pos 4480 0 transform 90
 
+
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # ************FIX********* output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1921x1080.png fill
-
 
 
 ### Idle configuration
@@ -50,6 +58,7 @@ output DP-2 resolution 1920x1080@60hz pos 4480 0 transform 90
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
+
 ### Input configuration
 #
 # Example configuration:
@@ -63,6 +72,7 @@ output DP-2 resolution 1920x1080@60hz pos 4480 0 transform 90
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
+
 
 ### Key bindings
 #
@@ -89,6 +99,8 @@ output DP-2 resolution 1920x1080@60hz pos 4480 0 transform 90
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+
 #
 # Moving around:
 #
@@ -113,6 +125,8 @@ output DP-2 resolution 1920x1080@60hz pos 4480 0 transform 90
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
+
+
 #
 # Workspaces:
 #
@@ -140,6 +154,8 @@ output DP-2 resolution 1920x1080@60hz pos 4480 0 transform 90
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
+
 #
 # Layout stuff:
 #
@@ -165,6 +181,8 @@ output DP-2 resolution 1920x1080@60hz pos 4480 0 transform 90
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+
+
 #
 # Scratchpad:
 #
@@ -177,6 +195,8 @@ output DP-2 resolution 1920x1080@60hz pos 4480 0 transform 90
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
+
+
 #
 # Resizing containers:
 #
@@ -201,6 +221,7 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+
 
 #
 # Status Bar:
