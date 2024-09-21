@@ -107,6 +107,42 @@ output DP-2 resolution 1920x1080@60hz pos 4480 0 transform 90
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
+	#
+	# brightness - using sys-power/acpilight
+	#
+	bindsym XF86MonBrightnessDown exec xbacklight -dec 2
+	bindsym XF86MonBrightnessUp exec xbacklight -inc 4
+
+
+	#
+	# sound volume - using alsa
+	#
+	bindsym XF86AudioRaiseVolume exec amixer -Mq set Speaker 5%+
+	bindsym XF86AudioLowerVolume exec amixer -Mq set Speaker 5%-
+
+
+	#
+	# Screen  capture - using grim, slurp and wl-clipboard
+	#
+	set $ps1 Print
+	set $ps2 Control+Print
+	set $ps3 Alt+Print
+	set $ps4 Alt+Control+Print
+	set $psf $(xdg-user-dir PICTURES)/ps_$(date +%Y%m%d%H%M%S).png
+
+	bindsym $ps1 exec grim - | wl-copy
+	bindsym $ps2 exec grim -g "$(slurp)" - | wl-copy
+	bindsym $ps3 exec grim $psf
+	bindsym $ps4 exec grim -g "$(slurp)" $psf
+	# snipping
+	bindsym $mod+shift+s exec grim -g "$(slurp)" - | wl-copy
+
+
+	#
+	# screen lock - using swaylock
+	#
+	bindsym $mod+z exec swaylock --ignore-empty-password --show-failed-attempts --color 1e1e1e
+
 
 #
 # Moving around:
@@ -263,43 +299,6 @@ exec swayidle -w \
 	timeout 600 'swaymsg "output * dpms off"' \
 	resume 'swaymsg "output * dpms on"' \
 	before-sleep 'swaylock -f -c 000000'
-
-
-#
-# brightness - using sys-power/acpilight
-#
-bindsym XF86MonBrightnessDown exec xbacklight -dec 2
-bindsym XF86MonBrightnessUp exec xbacklight -inc 4
-
-
-#
-# sound volume - using alsa
-#
-bindsym XF86AudioRaiseVolume exec amixer -Mq set Speaker 5%+
-bindsym XF86AudioLowerVolume exec amixer -Mq set Speaker 5%-
-
-
-#
-# Screen  capture - using grim, slurp and wl-clipboard
-#
-set $ps1 Print
-set $ps2 Control+Print
-set $ps3 Alt+Print
-set $ps4 Alt+Control+Print
-set $psf $(xdg-user-dir PICTURES)/ps_$(date +%Y%m%d%H%M%S).png
-
-bindsym $ps1 exec grim - | wl-copy
-bindsym $ps2 exec grim -g "$(slurp)" - | wl-copy
-bindsym $ps3 exec grim $psf
-bindsym $ps4 exec grim -g "$(slurp)" $psf
-# snipping
-bindsym $mod+shift+s exec grim -g "$(slurp)" - | wl-copy
-
-
-#
-# screen lock - using swaylock
-#
-bindsym $mod+z exec swaylock --ignore-empty-password --show-failed-attempts --color 1e1e1e
 
 
 #
