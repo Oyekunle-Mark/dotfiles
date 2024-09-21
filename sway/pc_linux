@@ -248,4 +248,8 @@ exec mako
 bindsym XF86MonBrightnessDown exec xbacklight -dec 2
 bindsym XF86MonBrightnessUp exec xbacklight -inc 4
 
+# sound volume - using alsa
+bindsym XF86AudioRaiseVolume exec amixer -Mq set Speaker 5%+
+bindsym XF86AudioLowerVolume exec amixer -Mq set Speaker 5%-
+
 include /etc/sway/config.d/*
