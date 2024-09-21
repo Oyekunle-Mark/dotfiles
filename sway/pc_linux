@@ -270,7 +270,7 @@ bindsym XF86AudioLowerVolume exec amixer -Mq set Speaker 5%-
 
 
 #
-# Screen  capture
+# Screen  capture - using grim, slurp and wl-clipboard
 #
 set $ps1 Print
 set $ps2 Control+Print
@@ -282,7 +282,6 @@ bindsym $ps1 exec grim - | wl-copy
 bindsym $ps2 exec grim -g "$(slurp)" - | wl-copy
 bindsym $ps3 exec grim $psf
 bindsym $ps4 exec grim -g "$(slurp)" $psf
-
 # snipping
 bindsym $mod+shift+s exec grim -g "$(slurp)" - | wl-copy
 
