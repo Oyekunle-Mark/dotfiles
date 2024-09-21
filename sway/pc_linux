@@ -89,7 +89,7 @@ output DP-2 resolution 1920x1080@60hz pos 4480 0 transform 90
     bindsym $mod+Return exec $term
 
     # Kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym $mod+Shift+x kill
 
     # Start your launcher
     bindsym $mod+d exec $menu
@@ -102,10 +102,10 @@ output DP-2 resolution 1920x1080@60hz pos 4480 0 transform 90
     floating_modifier $mod normal
 
     # Reload the configuration file
-    bindsym $mod+Shift+c reload
+    bindsym $mod+Shift+r reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
 	#
 	# brightness - using sys-power/acpilight
