@@ -287,6 +287,12 @@ bindsym $mod+shift+s exec grim -g "$(slurp)" - | wl-copy
 
 
 #
+# screen lock - using swaylock
+#
+bindsym $mod+z exec swaylock --ignore-empty-password --show-failed-attempts --color 1e1e1e
+
+
+#
 # Default includes
 #
 include /etc/sway/config.d/*
