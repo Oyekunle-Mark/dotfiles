@@ -250,9 +250,19 @@ bar {
 
 
 #
-# start notification daemon
+# start notification daemon - using mako
 #
 exec mako
+
+
+#
+# screen idling - using swayidle
+#
+exec swayidle -w \
+	timeout 300 'swaylock -f -c 000000' \
+	timeout 600 'swaymsg "output * dpms off"' \
+	resume 'swaymsg "output * dpms on"' \
+	before-sleep 'swaylock -f -c 000000'
 
 
 #
@@ -290,6 +300,15 @@ bindsym $mod+shift+s exec grim -g "$(slurp)" - | wl-copy
 # screen lock - using swaylock
 #
 bindsym $mod+z exec swaylock --ignore-empty-password --show-failed-attempts --color 1e1e1e
+
+
+#
+# firefox tweaks
+#
+for_window [title = "About Mozilla Firefox"] floating enable
+for_window [app_id="firefox" title="Library"] floating enable, border pixel 1, stick enable
+for_window [title = "Firefox - Sharing Indicator"] kill
+for_window [title = "Firefox -- Sharing Indicator"] kill
 
 
 #
