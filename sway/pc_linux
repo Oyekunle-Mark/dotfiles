@@ -114,7 +114,7 @@ output DP-2 resolution 1920x1080@60hz pos 4480 0 transform 90
 	set $ps2 Control+Print
 	set $ps3 Alt+Print
 	set $ps4 Alt+Control+Print
-	set $psf $(xdg-user-dir PICTURES)/ps_$(date +%Y%m%d%H%M%S).png
+	set $psf ~/Pictures/screenshot_$(date +%Y%m%d%H%M%S).png
 
 	bindsym $ps1 exec grim - | wl-copy
 	bindsym $ps2 exec grim -g "$(slurp)" - | wl-copy
