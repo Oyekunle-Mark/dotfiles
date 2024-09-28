@@ -49,7 +49,7 @@ output DP-2 resolution 1920x1080@60hz pos 4480 0 transform 90
 
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# ************FIX********* output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1921x1080.png fill
+output * bg ~/Pictures/dark_wallpapper.png fill
 
 
 ### Input configuration
