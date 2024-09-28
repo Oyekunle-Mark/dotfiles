@@ -22,13 +22,13 @@ set $right l
 
 
 #
-# Your preferred terminal emulator - foot
+# Your preferred terminal emulator - using foot
 #
 set $term foot
 
 
 #
-# Your preferred application launcher - wmenu
+# Your preferred application launcher - using wmenu
 #
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -253,7 +253,7 @@ bindsym $mod+r mode "resize"
 
 
 #
-# Status Bar:
+# Status Bar: - using swaybar
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
