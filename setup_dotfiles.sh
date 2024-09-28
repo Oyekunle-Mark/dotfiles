@@ -76,5 +76,11 @@ mkdir -p ~/.config/foot
 # then build
 build_file foot $1 ~/.config/foot/foot.ini
 
+# build gdb
+# create gdb nested config destination if missing
+mkdir -p ~/.config/gdb
+# then build
+build_file gdb $1 ~/.config/gdb/gdbearlyinit
+
 # all configs built successfully. log the success message
 echo "\nAll config files have been built for the $1 environment. Enjoy :)\n"
