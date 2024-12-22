@@ -70,6 +70,12 @@ mkdir -p ~/.config/sway
 # then build
 build_file sway $1 ~/.config/sway/config
 
+# build i3 config
+# create i3 nested config destination if missing
+mkdir -p ~/.config/i3
+# then build
+build_file i3 $1 ~/.config/i3/config
+
 # build foot
 # create foot nested config destination if missing
 mkdir -p ~/.config/foot
