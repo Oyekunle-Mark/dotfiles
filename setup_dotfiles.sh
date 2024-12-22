@@ -95,7 +95,7 @@ build_file conky_i3bar $1 ~/.config/i3/conky-i3bar.sh
 chmod +x ~/.config/i3/conky-i3bar.sh
 
 # build x
-build_file xorg $1 ~/.xinitrc
+build_file x $1 ~/.xinitrc
 
 # all configs built successfully. log the success message
 echo "\nAll config files have been built for the $1 environment. Enjoy :)\n"
