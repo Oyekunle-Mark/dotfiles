@@ -1,14 +1,20 @@
 # i3 config file (v4)
+## dependencies:
+## 1. i3
+## 2. i3lock
+## 3. xautolock
+## 3. i3status
+## 4. conky
+## 5. dmenu
+## 6. foot
+## 7. gnome-screenshot
+## 8. nitrogen
 
 # I prefer to use the Win key as the mod key.
-# Arch Linux.
-#set $mod Mod4
-# FreeBSD.
-set $mod Mod1
+set $mod Mod4
 
 # Default font for i3.
 font pango:DejaVu Sans Mono 8
-#font pango:Monospace 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position.
 floating_modifier $mod
@@ -63,12 +69,6 @@ bindsym $mod+Shift+space floating toggle
 # Change focus between tiling / floating windows.
 bindsym $mod+space focus mode_toggle
 
-# Focus the parent container.
-#bindsym $mod+a focus parent
-
-# Focus the child container.
-#bindsym $mod+d focus child
-
 # Switch to workspace.
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
@@ -93,7 +93,7 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-# This only works for i3-gaps.
+# set gaps
 gaps inner 20
 gaps outer 5
 
@@ -101,25 +101,13 @@ gaps outer 5
 for_window [class="^.*"] border pixel 1
 
 # Key combination for dmenu.
-bindsym $mod+d exec dmenu_run
+bindsym $mod+m exec dmenu_run
 
-# If you prefer Rofi to dmenu, you can comment out the above and use this
-# instead. Remember to install the Rofi package: 'doas pkg install rofi'.
-#bindsym $mod+d exec "rofi -combi-modi window,drun -show combi -modi combi"
-
-# Key combination for some of my favorite applications.
-bindsym $mod+Return exec "xterm"
-bindsym $mod+Shift+m exec "claws-mail"
-bindsym $mod+Shift+g exec "gimp"
-bindsym $mod+Shift+f exec "firefox"
-bindsym $mod+Shift+t exec "hexchat"
-bindsym $mod+Shift+z exec "filezilla"
+# Key combination for the terminal
+bindsym $mod+Return exec "foot"
 
 # Map the print key to gnome-screenshot.
 bindsym Print exec "gnome-screenshot -i"
-
-# Some applications needs to be floating. mpv is one of them.
-for_window [class="mpv"] floating enable
 
 # Let's try to get most pop-up windows floating.
 for_window [window_role="pop-up"] floating enable
@@ -129,11 +117,8 @@ for_window [window_role="Preferences"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 
-# Screen lock. See 'man i3lock' for information about usage.
+# Screen lock.
 bindsym $mod+Control+l exec "i3lock -t -i ~/.lock1.png --color=000000"
-
-# Jump to the latest "urgent" window.
-bindsym $mod+u [urgent=latest] focus
 
 # Reload the configuration file.
 bindsym $mod+Shift+r reload
@@ -142,14 +127,7 @@ bindsym $mod+Shift+r reload
 bindsym $mod+Shift+e restart
 
 # Exit i3 (logs you out of your X session).
-# In my case I don't want a warning or anything, so be careful about pressing
-# this combination as it kills X. Also be sure to lock down all applications
-# before usage.
-bindsym $mod+Shift+x exec i3-msg exit
-
-# If you like a warning that needs to be confirmed with the mouse, you can use
-# the following instead.
-#bindsym $mod+Shift+x exec "i3-nagbar -t warning -m 'Do you really want to end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+x exec "i3-nagbar -t warning -m 'Do you really want to end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Resize window (you can also use the mouse for that).
 mode "resize" {
@@ -192,9 +170,3 @@ bar {
 # Let's get our wallpaper.
 # You can run nitrogen from the console and set it up, afterwards use "--restore" to use it in i3.
 exec --no-startup-id "nitrogen --restore"
-
-# If you would like to be able to switch between keyboard layouts, this is the
-# way to do it. As an example I am swithing between a Danish and an Arabic
-# keyboard layout in this setup.
-# You switch between layouts by pressing "left CTRL + right CTRL".
-exec --no-startup-id "setxkbmap -layout dk,ara -option grp:ctrls_toggle"
