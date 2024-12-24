@@ -97,8 +97,5 @@ chmod +x ~/.config/i3/conky-i3bar.sh
 # build x
 build_file x $1 ~/.xinitrc
 
-# build xterm
-build_file xterm $1 ~/.Xresources
-
 # all configs built successfully. log the success message
 echo "\nAll config files have been built for the $1 environment. Enjoy :)\n"
