@@ -104,7 +104,7 @@ for_window [class="^.*"] border pixel 1
 bindsym $mod+m exec dmenu_run
 
 # Key combination for the terminal
-bindsym $mod+Return exec "foot"
+bindsym $mod+Return exec "xterm"
 
 # Map the print key to gnome-screenshot.
 bindsym Print exec "gnome-screenshot -i"
