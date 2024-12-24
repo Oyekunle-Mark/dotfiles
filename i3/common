@@ -118,7 +118,9 @@ for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 
 # Screen lock.
-bindsym $mod+Control+l exec "i3lock -t -i ~/.lock1.png --color=000000"
+bindsym $mod+Control+l exec "i3lock -c 000000"
+# auto lock the screen
+exec "xautolock -detectsleep -time 3 -locker \"i3lock -c 000000\""
 
 # Reload the configuration file.
 bindsym $mod+Shift+r reload
