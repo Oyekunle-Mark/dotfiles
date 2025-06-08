@@ -2,6 +2,6 @@
 alias start_sway='dbus-run-session sway'
 
 # power management
-alias sus='systemctl suspend'
-alias off='systemctl poweroff'
-alias reboot='systemctl reboot'
+alias sus='sudo systemctl suspend'
+alias off='sudo systemctl poweroff'
+alias reboot='sudo systemctl reboot'
