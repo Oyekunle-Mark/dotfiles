@@ -1,28 +1,100 @@
 conky.config = {
     background = false,
     cpu_avg_samples = 2,
+    net_avg_samples = 2,
     no_buffers = true,
     out_to_console = true,
     out_to_x = false,
     own_window = false,
     update_interval = 1,
     short_units = true,
-    total_run_times = 0
+    total_run_times = 0,
+    
+    -- Templates for dynamic detection
+    template0 = [[${exec ip -o -4 route show to default | awk '{print $5}' | head -n1}]], -- Active network interface
+    template1 = [[${exec find /sys/class/power_supply -name "BAT*" | head -n1 | xargs basename}]], -- Battery name
+    template2 = [[${exec sensors | grep -E 'Core 0' | awk '{print $3}' | tr -d '+°C'}]], -- CPU temperature
 };
 
 conky.text = [[
-
 [
-    {"full_text": "CPU: ${cpu cpu0}% ", "color":"\#cf6a4c"},
-    {"full_text": " | ", "color":"\#555555"},
-    {"full_text": "RAM: $mem","color":"\#cda869"},
-    {"full_text": " | ", "color":"\#555555"},
-    {"full_text": "${exec hostname }", "color":"\#9b703f"},
-    {"full_text": " | ", "color":"\#555555"},
-    {"full_text": "UP: ${uptime_short} ", "color":"\#838184"},
-    {"full_text": " | ", "color":"\#555555"},
-    {"full_text": "${time %A %Y-%m-%d}", "color":"\#cccccc"},
-    {"full_text": "${time %H:%M}", "color":"\#cccccc"}
-],
+    -- CPU usage with dynamic color based on load
+    {"full_text": "CPU: ${cpu cpu0}% ", 
+     "color": ${if_match ${cpu cpu0}>90}"\#FF0000"${else}${if_match ${cpu cpu0}>70}"\#FFAA00"${else}"\#cf6a4c"${endif}${endif},
+     "name": "cpu"},
+    
+    -- CPU temperature with dynamic color
+    {"full_text": "${if_match "${template2}" != ""}${template2}°C${else}N/A${endif}", 
+     "color": ${if_match ${template2}>80}"\#FF0000"${else}${if_match ${template2}>70}"\#FFAA00"${else}"\#9dd6f5"${endif}${endif},
+     "name": "cpu_temp"},
+    
+    {"full_text": " | ", "color":"\#555555", "separator": false},
+    
+    -- Memory usage with dynamic color
+    {"full_text": "RAM: ${mem}/${memmax} (${memperc}%)",
+     "color": ${if_match ${memperc}>90}"\#FF0000"${else}${if_match ${memperc}>70}"\#FFAA00"${else}"\#cda869"${endif}${endif},
+     "name": "memory"},
+    
+    {"full_text": " | ", "color":"\#555555", "separator": false},
+    
+    -- Disk usage with dynamic color
+    {"full_text": "Disk: ${fs_used /}/${fs_size /} (${fs_used_perc /}%)", 
+     "color": ${if_match ${fs_used_perc /}>90}"\#FF0000"${else}${if_match ${fs_used_perc /}>70}"\#FFAA00"${else}"\#8f9d6a"${endif}${endif},
+     "name": "disk"},
+    
+    {"full_text": " | ", "color":"\#555555", "separator": false},
+    
+    -- Network with dynamic detection and fallback
+    {"full_text": "Net: ${if_existing /sys/class/net/${template0}/operstate up}↓${downspeed ${template0}} ↑${upspeed ${template0}}${else}Disconnected${endif}", 
+     "color":"\#7587a6",
+     "name": "network"},
+    
+    {"full_text": " | ", "color":"\#555555", "separator": false},
 
+    -- Battery with dynamic detection and color based on level
+    ${if_existing /sys/class/power_supply/${template1}}
+    {"full_text": "BAT: ${battery_percent ${template1}}% ${if_match ${battery_percent ${template1}}<99}(${battery_time ${template1}})${endif}", 
+     "color": ${if_match ${battery_percent ${template1}}<20}"\#FF0000"${else}${if_match ${battery_percent ${template1}}<40}"\#FFAA00"${else}"\#7ccd7c"${endif}${endif},
+     "name": "battery"},
+    
+    {"full_text": " | ", "color":"\#555555", "separator": false},
+    ${endif}
+    
+    -- Volume level - detects both ALSA and PulseAudio
+    {"full_text": "Vol: ${exec (command -v amixer >/dev/null && amixer get Master | grep -oP '\d+%' | head -n1) || (command -v pactl >/dev/null && pactl get-sink-volume @DEFAULT_SINK@ | grep -oP '\d+%' | head -n1) || echo 'N/A'}", 
+     "color":"\#c3bf9f",
+     "name": "volume"},
+    
+    {"full_text": " | ", "color":"\#555555", "separator": false},
+    
+    -- System load averages
+    {"full_text": "Load: ${loadavg 1} ${loadavg 2} ${loadavg 3}", 
+     "color": ${if_match ${loadavg 1}>4}"\#FF0000"${else}${if_match ${loadavg 1}>2}"\#FFAA00"${else}"\#b5bd68"${endif}${endif},
+     "name": "load"},
+    
+    {"full_text": " | ", "color":"\#555555", "separator": false},
+    
+    -- Hostname
+    {"full_text": "${exec hostname}", 
+     "color":"\#9b703f",
+     "name": "hostname"},
+    
+    {"full_text": " | ", "color":"\#555555", "separator": false},
+    
+    -- Uptime
+    {"full_text": "Up: ${uptime_short}", 
+     "color":"\#838184",
+     "name": "uptime"},
+    
+    {"full_text": " | ", "color":"\#555555", "separator": false},
+    
+    -- Date and time
+    {"full_text": "${time %a %Y-%m-%d}", 
+     "color":"\#cccccc",
+     "name": "date"},
+    
+    {"full_text": "${time %H:%M:%S}", 
+     "color":"\#ffffff",
+     "name": "time"}
+],
 ]];
