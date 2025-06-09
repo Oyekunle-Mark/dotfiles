@@ -5,3 +5,6 @@ alias start_sway='dbus-run-session sway'
 alias sus='sudo systemctl suspend'
 alias off='sudo systemctl poweroff'
 alias reboot='sudo systemctl reboot'
+
+# add poetry to path
+export PATH="/home/oye/.local/bin:$PATH"
