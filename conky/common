@@ -84,5 +84,5 @@ conky.text = [[
     {"full_text": "${time %H:%M:%S}",
      "color":"\#ffffff",
      "name": "time"}
-]
+],
 ]];
