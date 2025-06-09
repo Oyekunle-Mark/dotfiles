@@ -21,7 +21,7 @@ conky.text = [[
      "color": "${if_match ${cpu cpu0}>90}\#FF0000${else}${if_match ${cpu cpu0}>70}\#FFAA00${else}\#cf6a4c${endif}${endif}",
      "name": "cpu"},
      
-    {"full_text": "${if_match "${template2}" != "0"}${template2}°C${else}N/A${endif}", 
+    {"full_text": "CPU Temperature: ${if_match "${template2}" != "0"}${template2}°C${else}N/A${endif}", 
      "color": "${if_match ${template2}>80}\#FF0000${else}${if_match ${template2}>70}\#FFAA00${else}\#9dd6f5${endif}${endif}",
      "name": "cpu_temp"},
     
