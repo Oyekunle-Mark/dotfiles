@@ -64,23 +64,11 @@ build_file vim $1 ~/.vimrc
 # build git
 build_file git $1 ~/.gitconfig
 
-# build sway config
-# create sway nested config destination if missing
-mkdir -p ~/.config/sway
-# then build
-build_file sway $1 ~/.config/sway/config
-
 # build i3 config
 # create i3 nested config destination if missing
 mkdir -p ~/.config/i3
 # then build
 build_file i3 $1 ~/.config/i3/config
-
-# build foot
-# create foot nested config destination if missing
-mkdir -p ~/.config/foot
-# then build
-build_file foot $1 ~/.config/foot/foot.ini
 
 # build gdb
 # create gdb nested config destination if missing

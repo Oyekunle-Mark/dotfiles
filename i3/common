@@ -100,7 +100,7 @@ workspace 1 output DisplayPort-0
 workspace 2 output HDMI-A-0
 
 # set gaps
-gaps inner 20
+gaps inner 5
 gaps outer 5
 
 # Disable title bars.
@@ -160,17 +160,19 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bar {
-    colors {
-        background #1e1e1e
-        statusline #ffffff
-        separator  #1e1e1e
-        focused_workspace  #008fff #007fff #ffffff
-        active_workspace   #333333 #5f676a #ffffff
-        inactive_workspace #333333 #222222 #888888
-        urgent_workspace   #aa0000 #990000 #ffffff
-    }
-    position top
     status_command ~/.config/i3/conky-i3bar.sh
+	position top
+    colors {
+        background #222222
+        statusline #ffffff
+        separator #444444
+
+        # class              border  backgr. text
+        focused_workspace    #285577 #285577 #ffffff
+        active_workspace     #333333 #333333 #ffffff
+        inactive_workspace   #333333 #333333 #888888
+        urgent_workspace     #2f343a #900000 #ffffff
+    }
 }
 
 ## Autostart applicatons ##

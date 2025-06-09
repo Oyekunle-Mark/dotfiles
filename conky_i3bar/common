@@ -1,13 +1,23 @@
 #!/bin/sh
+# Enhanced i3bar script with error handling
 
-# Send the header so that i3bar knows we want to use JSON:
+# Send the header so that i3bar knows we want to use JSON
 echo '{"version":1}'
 
-# Begin the endless array.
+# Begin the endless array
 echo '['
 
-# We send an empty first array of blocks to make the loop simpler:
+# We send an empty first array of blocks to make the loop simpler
 echo '[],'
 
-# Now send blocks with information forever:
-exec conky -c ~/.conkyrc
+# Check if conky is installed
+if command -v conky >/dev/null 2>&1; then
+    # Start conky with our configuration
+    exec conky -c ~/.conkyrc 2>/tmp/conky-error.log
+else
+    # Fallback if conky isn't installed
+    while true; do
+        echo "[{\"full_text\":\"conky not installed\",\"color\":\"\#FF0000\"}],"
+        sleep 5
+    done
+fi
