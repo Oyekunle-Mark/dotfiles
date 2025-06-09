@@ -25,57 +25,36 @@ conky.text = [[
      "color": "${if_match ${template2}>80}\#FF0000${else}${if_match ${template2}>70}\#FFAA00${else}\#9dd6f5${endif}${endif}",
      "name": "cpu_temp"},
     
-    {"full_text": " | ", "color":"\#555555", "separator": false},
-    
     {"full_text": "RAM: ${mem}/${memmax} (${memperc}%)",
      "color": "${if_match ${memperc}>90}\#FF0000${else}${if_match ${memperc}>70}\#FFAA00${else}\#cda869${endif}${endif}",
      "name": "memory"},
     
-    {"full_text": " | ", "color":"\#555555", "separator": false},
-    
     {"full_text": "Disk: ${fs_used /}/${fs_size /} (${fs_used_perc /}%)",
      "color": "${if_match ${fs_used_perc /}>90}\#FF0000${else}${if_match ${fs_used_perc /}>70}\#FFAA00${else}\#8f9d6a${endif}${endif}",
      "name": "disk"},
-    
-    {"full_text": " | ", "color":"\#555555", "separator": false},
     
     {"full_text": "Net: ${if_existing /sys/class/net/${template0}/operstate up}↓${downspeed ${template0}} ↑${upspeed ${template0}}${else}Disconnected${endif}",
      "color":"\#7587a6",
      "name": "network"},
     
     ${if_match "${template1}" != ""}
-    {"full_text": " | ", "color":"\#555555", "separator": false},
     
     {"full_text": "BAT: ${battery_percent ${template1}}% ${if_match ${battery_percent ${template1}}<99}(${battery_time ${template1}})${endif}",
      "color": "${if_match ${battery_percent ${template1}}<20}\#FF0000${else}${if_match ${battery_percent ${template1}}<40}\#FFAA00${else}\#7ccd7c${endif}${endif}",
      "name": "battery"},
     ${endif}
     
-    {"full_text": " | ", "color":"\#555555", "separator": false},
-    
     {"full_text": "Vol: ${exec (command -v amixer >/dev/null && amixer get Master | grep -oP '\d+%' | head -n1) || (command -v pactl >/dev/null && pactl get-sink-volume @DEFAULT_SINK@ | grep -oP '\d+%' | head -n1) || echo 'N/A'}",
      "color":"\#c3bf9f",
      "name": "volume"},
-    
-    {"full_text": " | ", "color":"\#555555", "separator": false},
-    
-    {"full_text": "Load: ${loadavg 1} ${loadavg 2} ${loadavg 3}",
-     "color": "${if_match ${loadavg 1}>4}\#FF0000${else}${if_match ${loadavg 1}>2}\#FFAA00${else}\#b5bd68${endif}${endif}",
-     "name": "load"},
-    
-    {"full_text": " | ", "color":"\#555555", "separator": false},
     
     {"full_text": "${exec hostname}",
      "color":"\#9b703f",
      "name": "hostname"},
     
-    {"full_text": " | ", "color":"\#555555", "separator": false},
-    
     {"full_text": "Up: ${uptime_short}",
      "color":"\#838184",
      "name": "uptime"},
-    
-    {"full_text": " | ", "color":"\#555555", "separator": false},
     
     {"full_text": "${time %a %Y-%m-%d}",
      "color":"\#cccccc",
