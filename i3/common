@@ -100,7 +100,7 @@ workspace 1 output DisplayPort-0
 workspace 2 output HDMI-A-0
 
 # set gaps
-gaps inner 20
+gaps inner 5
 gaps outer 5
 
 # Disable title bars.
