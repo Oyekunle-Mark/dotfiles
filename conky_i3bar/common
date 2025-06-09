@@ -1,11 +1,8 @@
 #!/bin/sh
-# Enhanced i3bar script with error handling and fallback
-
-# Ensure we're using UTF-8 for proper symbols
-export LANG=en_US.UTF-8
+# Enhanced i3bar script with error handling
 
 # Send the header so that i3bar knows we want to use JSON
-echo '{"version":1, "click_events": true}'
+echo '{"version":1}'
 
 # Begin the endless array
 echo '['
@@ -16,11 +13,11 @@ echo '[],'
 # Check if conky is installed
 if command -v conky >/dev/null 2>&1; then
     # Start conky with our configuration
-    exec conky -c ~/.conkyrc
+    exec conky -c ~/.conkyrc 2>/tmp/conky-error.log
 else
     # Fallback if conky isn't installed
     while true; do
-        echo "[{\"full_text\":\"conky not installed\",\"color\":\"\#FF0000\",\"separator\":false,\"separator_block_width\":0}],"
+        echo "[{\"full_text\":\"conky not installed\",\"color\":\"\#FF0000\"}],"
         sleep 5
     done
 fi
