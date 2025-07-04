@@ -126,7 +126,7 @@ for_window [window_type="menu"] floating enable
 # Screen lock.
 bindsym $mod+Control+l exec "i3lock -c 000000"
 # auto lock the screen
-exec "xautolock -detectsleep -time 5 -locker \"i3lock -c 000000\""
+exec "xautolock -detectsleep -time 10 -locker \"i3lock -c 000000\""
 
 # Reload the configuration file.
 bindsym $mod+Shift+r reload
