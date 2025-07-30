@@ -11,5 +11,8 @@ alias vol_up='amixer set Master 10%+'
 alias vol_down='amixer set Master 10%-'
 alias vol='amixer get Master'
 
+# shortcut to some utilities
+alias pdf='apvlv'
+
 # add poetry to path
 export PATH="/home/oye/.local/bin:$PATH"
